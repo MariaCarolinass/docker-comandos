@@ -46,6 +46,15 @@ Visualizando containers em execução:
 Visualizando containers criados:
 
     # docker container ls -a
+    
+Checando informações do container:
+
+    # docker container inspect id-container
+
+Remover um container:
+    
+    # docker container rm id-container
+    # docker container rm -f id-container
 
 #### Criando um container para o Centos
 
@@ -55,7 +64,7 @@ Executando e interagindo com o container:
 
 Acessando o container:
     
-    # docker container attach id-container 
+    # docker container attach id-container
 
 #### Criando um container para o Nginx
 
@@ -66,15 +75,6 @@ Executando e criando o container como daemon (primeiro plano):
 Acessando o container:
   
     # docker container exec -ti  id-container ls /
-
-Checando informações do container:
-
-    # docker container inspect id-container
-
-Remover um container:
-    
-    # docker container rm id-container
-    # docker container rm -f id-container
 
 #### Dados de hardware do container: 
 
@@ -102,15 +102,21 @@ Atualizando tamanho da cpu:
 
     # docker container update --cpus 0.2 id-imagem
     
-Conferindo imagens criadas:
-
-    # docker image ls
+### Volumes
 
 Criando um novo volume:
     
     # docker volume create nome_volume
 
-Criar container com ponto de montagem para guardar dados:
+Visualizando volumes criados:
+    
+    # docker volume ls
+
+Checando informações do volume
+
+    # docker volume inspect nome_volume
+
+#### Criando container com ponto de montagem para guardar dados:
     
 Tipo bind: (quando já tem um diretório para montar dentro do container)
 
@@ -120,18 +126,18 @@ Tipo volume:
     
     # docker container run -ti --mount type=volume,src=nome_volume,dst=projeto debian
 
-Conferindo volumes criados:
+### Apagar inativos:
     
-    # docker volume ls
-
-    # docker volume inspect nome_volume
-
-Apagar inativos:
-    
-Volume:
+Apagar volumes inativos:
 
     # docker volume prune
     
-Container:
+Apagar containers inativos:
 
     # docker container prune
+
+### Imagens do container
+
+Visualizando imagens criadas:
+
+    # docker image ls
