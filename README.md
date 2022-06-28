@@ -12,67 +12,71 @@ Os contêineres são isolamentos, processos separados uns dos outros e que agrup
 
 ## Comandos útils (terminal)
 
-Instalação do Docker:
+### Instalação do Docker:
 
     $ su
     # apt-get update
     # apt-get curl
     # curl -fsSL https://get.docker.com | bash
 
-Testando se Docker foi instalado:
+[Consulte a documentação do Docker](https://docs.docker.com/engine/install/)
+
+Testando se o Docker foi instalado:
 
     # docker container run -ti hello-world
 
-Conferindo versão instalada do Docker:
+Conferindo a versão instalada do Docker:
 
     # docker version
 
-Conferindo containers em execução:
+### Start, stop, restart, pause e unpause container
+    
+    # docker container stop  id-container
+    # docker container start  id-container
+    # docker container restart  id-container
+    # docker container pause  id-container
+    # docker container unpause  id-container
+
+### Container
+
+Visualizando containers em execução:
 
     # docker container ls
 
-Conferindo containers criados:
+Visualizando containers criados:
 
     # docker container ls -a
 
-Criando um container da imagem Centos:
+#### Criando um container para o Centos
 
-Executando e interagindo
+Executando e interagindo com o container:
     
     # docker container run -ti centos
 
-Conectando container:
+Acessando o container:
     
-    # docker container attach id-imagem 
+    # docker container attach id-container 
 
-Criando um container da imagem nginx:
+#### Criando um container para o Nginx
 
-Executando e rodando como daemon (primeiro plano)
+Executando e criando o container como daemon (primeiro plano):
     
     # docker container run -d nginx
 
-Conectando container:
+Acessando o container:
   
-    # docker container exec -ti  id-imagem ls /
+    # docker container exec -ti  id-container ls /
 
-Start, stop, restart, pause e unpause container:
+Checando informações do container:
+
+    # docker container inspect id-container
+
+Remover um container:
     
-    # docker container stop  id-imagem
-    # docker container start  id-imagem
-    # docker container restart  id-imagem
-    # docker container pause  id-imagem
-    # docker container unpause  id-imagem
+    # docker container rm id-container
+    # docker container rm -f id-container
 
-Checar informações de uma imagem do container:
-    
-    # docker container inspect id-imagem
-
-Remover imagem do container:
-    
-    # docker container rm id-imagem
-    # docker container rm -f id-imagem
-
-Dados de hardware da imagem no container: 
+#### Dados de hardware do container: 
 
 Informações de memória:
 
@@ -82,17 +86,22 @@ Processos em execução:
 
     # docker container top id-imagem
 
-Rodando container definindo memória e cpu da imagem:
-    
+Criando um container e definindo tamanho da memória
+
     # docker container run -d -m 128M nginx
 
+Criando um container e definindo tamanho da memória e cpu:
+    
     # docker container run -d -m 128M --cpus 0.5 nginx
 
-Atualizando quantidade da cpu e memória:
+Atualizando tamanho da memória:
+
+    # docker container update --memory 64M id-imagem
+    
+Atualizando tamanho da cpu:
 
     # docker container update --cpus 0.2 id-imagem
-    # docker container update --memory 64M id-imagem
-
+    
 Conferindo imagens criadas:
 
     # docker image ls
