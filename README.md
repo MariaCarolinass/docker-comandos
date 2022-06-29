@@ -10,7 +10,7 @@ Os contêineres são isolamentos, processos separados uns dos outros e que agrup
 
 [Referência](https://pt.wikipedia.org/wiki/Docker_(software))
 
-## Comandos útils (terminal)
+## Comandos úteis (terminal)
 
 ### Instalação do Docker:
 
@@ -19,42 +19,17 @@ Os contêineres são isolamentos, processos separados uns dos outros e que agrup
     # apt-get curl
     # curl -fsSL https://get.docker.com | bash
 
-[Consulte a documentação do Docker](https://docs.docker.com/engine/install/)
-
 Testando se o Docker foi instalado:
 
     # docker container run -ti hello-world
 
-Conferindo a versão instalada do Docker:
+[Consulte a documentação do Docker](https://docs.docker.com/engine/install/)
+
+#### Conferindo a versão instalada do Docker:
 
     # docker version
 
-### Start, stop, restart, pause e unpause container
-    
-    # docker container stop  id-container
-    # docker container start  id-container
-    # docker container restart  id-container
-    # docker container pause  id-container
-    # docker container unpause  id-container
-
 ### Container
-
-Visualizando containers em execução:
-
-    # docker container ls
-
-Visualizando containers criados:
-
-    # docker container ls -a
-    
-Checando informações do container:
-
-    # docker container inspect id-container
-
-Remover um container:
-    
-    # docker container rm id-container
-    # docker container rm -f id-container
 
 #### Criando um container para o Centos
 
@@ -75,6 +50,25 @@ Executando e criando o container como daemon (primeiro plano):
 Acessando o container:
   
     # docker container exec -ti  id-container ls /
+
+#### Comandos básicos do container
+
+Visualizando containers em execução:
+
+    # docker container ls
+
+Visualizando containers criados:
+
+    # docker container ls -a
+    
+Checando informações do container:
+
+    # docker container inspect id-container
+
+Removendo um container:
+    
+    # docker container rm id-container
+    # docker container rm -f id-container
 
 #### Dados de hardware do container: 
 
@@ -101,10 +95,18 @@ Atualizando tamanho da memória:
 Atualizando tamanho da cpu:
 
     # docker container update --cpus 0.2 id-imagem
+
+### Start, stop, restart, pause e unpause container
+    
+    # docker container stop  id-container
+    # docker container start  id-container
+    # docker container restart  id-container
+    # docker container pause  id-container
+    # docker container unpause  id-container
     
 ### Volumes
 
-Criando um novo volume:
+Criando um volume:
     
     # docker volume create nome_volume
 
