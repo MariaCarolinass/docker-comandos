@@ -140,6 +140,17 @@ Apagar containers inativos:
 
 ### Imagens do container
 
+#### Comandos básicos da imagem
+
+Criando uma imagem:
+
+    # docker image build -t nome_imagem:1.0
+
 Visualizando imagens criadas:
 
     # docker image ls
+    
+Apagar uma imagem:
+
+    # docker image rm id_image
+    # docker image rm -f id_image
