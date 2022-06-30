@@ -160,7 +160,7 @@ Criando imagem e executando no container:
 
     # docker image build -t nome_imagem:1.0
     # docker image ls
-    # docker container run -d nome_imagem:1.0
+    # docker container run -d nome_container:1.0
     # docker container ls
 
 #### Comandos básicos da imagem
