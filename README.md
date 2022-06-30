@@ -138,7 +138,30 @@ Apagar containers inativos:
 
     # docker container prune
 
-### Imagens do container
+### Imagens no container
+
+#### Criando uma imagem executável
+
+Iniciando projeto:
+
+    # mkdir projeto-docker
+    # cd projeto-docker
+    # nano DockerFile
+    
+Colar no arquivo DockerFile:
+
+    FROM debian
+    LABEL app = ‘nome_app’
+    ENV Docker = ‘nome_env’
+    RUN apt-get update && apt-get install -y stress && apt-get clean 
+    CMD stress --cpu 1 --vm-bytes 64M --vm 1
+        
+Criando imagem e executando no container:
+
+    # docker image build -t nome_imagem:1.0
+    # docker image ls
+    # docker container run -d nome_imagem:1.0
+    # docker container ls
 
 #### Comandos básicos da imagem
 
