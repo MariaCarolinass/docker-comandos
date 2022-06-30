@@ -1,6 +1,6 @@
 # Docker
 
-**O que é Docker?** 
+**O que é o Docker?** 
 
 É um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres.
 
@@ -8,22 +8,40 @@
 
 Os contêineres são isolamentos, processos separados uns dos outros e que agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
 
-[Referência](https://pt.wikipedia.org/wiki/Docker_(software))
+## Sumário
+
+* [Comandos úteis](#comandos-úteis-terminal)
+    * [Instalação](#instalação)
+        * [Testando se o Docker foi instalado](#testando-se-o-docker-foi-instalado)
+        * [Conferindo a versão instalada do Docker](#conferindo-a-versão-instalada-do-docker)
+    * [Container](#container)
+        * [Criando um container para o Centos](#criando-um-container-para-o-centos)
+        * [Criando um container para o Nginx](#criando-um-container-para-o-nginx)
+        * [Comandos básicos do container](#comandos-básicos-do-container)
+        * [Dados de hardware do container](#dados-de-hardware-do-container)
+    * [Start, stop, restart, pause e unpause container](#start-stop-restart-pause-e-unpause-container)
+    * [Volumes](#volumes)
+        * [Armazenando dados do container](#armazenando-dados-do-container)
+    * [Imagens](#imagens)
+        * [Criando uma imagem executável](#criando-uma-imagem-executável)
+        * [Comandos básicos da imagem](#comandos-básicos-da-imagem)
+    * [Apagar inativos](#apagar-inativos)
+* [Links](#links) 
 
 ## Comandos úteis (terminal)
 
-### Instalação do Docker:
+### Instalação:
 
     $ su
     # apt-get update
     # apt-get curl
     # curl -fsSL https://get.docker.com | bash
 
-Testando se o Docker foi instalado:
+[Consulte a documentação do Docker](https://docs.docker.com/engine/install/)
+
+#### Testando se o Docker foi instalado:
 
     # docker container run -ti hello-world
-
-[Consulte a documentação do Docker](https://docs.docker.com/engine/install/)
 
 #### Conferindo a versão instalada do Docker:
 
@@ -118,7 +136,7 @@ Checando informações do volume
 
     # docker volume inspect nome_volume
 
-#### Criando container com ponto de montagem para guardar dados:
+#### Armazenando dados do container:
     
 Tipo bind: (quando já tem um diretório para montar dentro do container)
 
@@ -128,17 +146,7 @@ Tipo volume:
     
     # docker container run -ti --mount type=volume,src=nome_volume,dst=projeto debian
 
-### Apagar inativos:
-    
-Apagar volumes inativos:
-
-    # docker volume prune
-    
-Apagar containers inativos:
-
-    # docker container prune
-
-### Imagens no container
+### Imagens
 
 #### Criando uma imagem executável
 
@@ -177,3 +185,17 @@ Apagar uma imagem:
 
     # docker image rm id_image
     # docker image rm -f id_image
+
+### Apagar inativos:
+    
+Apagar volumes inativos:
+
+    # docker volume prune
+    
+Apagar containers inativos:
+
+    # docker container prune
+    
+## Links
+
+- [O que é o Docker?](https://pt.wikipedia.org/wiki/Docker_(software))
