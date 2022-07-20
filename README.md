@@ -202,8 +202,28 @@ Apagar containers inativos:
     # docker container prune
 
 ## Rodando um container do PostgreSQL e guardando os dados no volume
+ 
+    # docker volume create dbdados
+    # docker container run -d -p 5432:5432 -- name pgsql --mount type=volume,src=dbdados,dst=/data -e POSTGRESQL_USER=docker -e POSTGRESL_PASS=docker -e POSTGRESQL_DB=docker kamui/postgresql
+    # docker container ls
+    # docker volume ls
+
+Conferindo se o volume foi criado:
+    
+    # cd /var/lib/docker/volumes/dbdados/_data/
+    # ls
+    
+Para ver as informações do volume:
+
+    # docker volume inspect dbdados
 
 ### Fazendo o backup dos dados
+
+    # mkdir /opt/backup
+    # docker container run -ti --mount type=volume,src=dbdados,dst=/data --mount type=bind,src=/opt/backup/,dst=/backup debian tar -cvf /backup/bkp-banco.tar /data
+    # cd /opt/backup/
+    # ls
+    # tar -xvf bkp-banco.tar
 
 ## Criando um arquivo Dockfile para instalar o servidor Apache
 
