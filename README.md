@@ -2,7 +2,7 @@
 
 **O que é o Docker?** 
 
-É um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres.
+É um conjunto de produtos de plataforma como serviços que usam virtualização de nível, de sistema operacional, para entregar softwares em pacotes chamados contêineres.
 
 **O que são contêineres?** 
 
@@ -26,6 +26,11 @@ Os contêineres são isolamentos, processos separados uns dos outros e que agrup
         * [Criando uma imagem executável](#criando-uma-imagem-executável)
         * [Comandos básicos da imagem](#comandos-básicos-da-imagem)
     * [Apagar inativos](#apagar-inativos)
+* [Rodando um container do PostgreSQL e guardando os dados no volume](#rodando-um-container-do-postgresql-e-guardando-os-dados-no-volume)
+   * [Fazendo o backup dos dados](#fazendo-o-backup-dos-dados)
+* [Criando um arquivo Dockfile para instalar o servidor Apache](#criando-um-arquivo-dockfile-para-instalar-o-servidor-apache)
+   * [Subindo a imagem para o Docker Hub](#subindo-a-imagem-para-o-docker-hub)
+   * [Subindo a imagem localmente usando registry](#subindo-a-imagem-localmente-usando-registry)
 * [Links](#links) 
 
 ## Comandos úteis (terminal)
@@ -195,7 +200,16 @@ Apagar volumes inativos:
 Apagar containers inativos:
 
     # docker container prune
-    
+
+## Rodando um container do PostgreSQL e guardando os dados no volume
+
+### Fazendo o backup dos dados
+
+## Criando um arquivo Dockfile para instalar o servidor Apache
+
+### Subindo a imagem para o Docker Hub
+### Subindo a imagem localmente usando registry
+   
 ## Links
 
 - [O que é o Docker?](https://pt.wikipedia.org/wiki/Docker_(software))
