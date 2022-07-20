@@ -299,3 +299,4 @@ Verificando se funcionou:
 ## Links
 
 - [O que é o Docker?](https://pt.wikipedia.org/wiki/Docker_(software))
+- Tudo aprendido no [treinamento descomplicando o docker, playlist gratuita,](https://youtube.com/playlist?list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR) no canal do [LINUXtips](https://www.youtube.com/c/LinuxTips)
