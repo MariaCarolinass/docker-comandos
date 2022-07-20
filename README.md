@@ -227,8 +227,74 @@ Para ver as informações do volume:
 
 ## Criando um arquivo Dockfile para instalar o servidor Apache
 
+    # mkdir dockerfiles
+    # cd dockerfiles
+    # mkdir versao1
+    # cd versao1
+    # nano Dockerfile
+
+Colar no arquivo Dockerfile:
+
+    FROM debian
+    
+    RUN apt-get update && apt-get install -y apache2 && apt-get clean
+    RUN chown www-data:www-data /var/lock && chown www-data:www-data /var/run/ && chown www-data:www-data /var/log/
+    
+    ENV APACHE_LOCK_DIR=”/var/lock”
+    ENV APACHE_PID_FILE=”/var/run/apache2.pid”
+    ENV APACHE_RUN_USER=”www-data”
+    ENV APACHE_RUN_GROUP=”www-data”
+    ENV APACHE_LOG_DIR=”/var/log/apache2”
+    
+    ADD index.html /var/www/html/
+    
+    LABEL description=”Webserver”
+    LABEL version=”1.0.0”
+    
+    USER root
+    
+    WORKDIR /var/www/html/
+    VOLUME /var/www/html/
+    
+    EXPOSE 80
+    ENTRYPOINT [“/usr/sbin/apachectl”]
+    CMD [“-D”, “FOREGROUND”]
+
+Criando imagem e rodando no container:
+
+    # docker image build -t meu_apache:1.0.0 .
+    # docker image ls
+    # docker container run -d -p 8080:80 meu_apache:1.0.0
+    # docker container ls
+    
+Verificar se servidor Apache está funcionando:
+
+    # curl localhost:8080
+
 ### Subindo a imagem para o Docker Hub
+
+Criar conta no [Docker Hub](https://hub.docker.com/)
+
+Subindo imagem:
+
+    # docker image tag id_image usuarioHubDocker/meu_apache:1.0.0
+    # docker image ls
+    # docker login
+    # docker push usuarioHubDocker/meu_apache:1.0.0
+
 ### Subindo a imagem localmente usando registry
+
+    # docker container run -d -p 5000:5000 --restart=always --name registry registry:2 
+    # docker image tag id_image localhost:5000/meu_apache:2.0.0 
+    # docker image push localhost:5000/meu_apache:2.0.0
+    # docker container rm -f id_container
+    # docker image rm -f id_image
+    # docker container run -d localhost:5000/meu_apache:2.0.0
+
+Verificando se funcionou:
+
+    # curl localhost:5000/v2/_catalog
+    # curl localhost:5000/v2/meu_apache/tags/list
    
 ## Links
 
